@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Team and Player Filter</title>
+    <style>
+        .card {
+            height: 250px; /* Fixed height for the card */
+        }
+        .card-img-top {
+            height: 180px; /* Fixed height for the image */
+            object-fit: cover; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 text-center">
+        <h1>Pakistain Valorant Teams And There Players</h1>
+        <input type="text" id="filterInput" class="form-control" placeholder="Filter by player name or team name">
+        <div class="accordion mt-5" id="teamAccordion"></div>
+    </div>
+
+    <script>
+        async function fetchTeams() {
+            const response = await fetch('teams.json');
+            return response.json();
+        }
+
+        async function fetchPlayerImages() {
+            const response = await fetch('players.json');
+            return response.json();
+        }
+
+        function displayTeams(teams, playerImages) {
+            const accordion = document.getElementById('teamAccordion');
+            accordion.innerHTML = '';
+
+            teams.forEach((team, index) => {
+                const teamCard = document.createElement('div');
+                teamCard.classList.add('accordion-item');
+
+                const header = document.createElement('h2');
+                header.classList.add('accordion-header');
+                header.id = `heading${index}`;
+
+                const button = document.createElement('button');
+                button.classList.add('accordion-button');
+                button.type = 'button';
+                button.setAttribute('data-bs-toggle', 'collapse');
+                button.setAttribute('data-bs-target', `#collapse${index}`);
+                button.setAttribute('aria-expanded', 'true');
+                button.setAttribute('aria-controls', `collapse${index}`);
+                button.innerText = team.team;
+
+                header.appendChild(button);
+                teamCard.appendChild(header);
+
+                const body = document.createElement('div');
+                body.id = `collapse${index}`;
+                body.classList.add('accordion-collapse', 'collapse', 'show');
+                body.setAttribute('aria-labelledby', `heading${index}`);
+                body.setAttribute('data-bs-parent', '#teamAccordion');
+
+                const playerList = document.createElement('div');
+                playerList.classList.add('row', 'p-3');
+
+                team.players.forEach(player => {
+                    const cardCol = document.createElement('div');
+                    cardCol.classList.add('col-md-4', 'mb-3');
+
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    const playerImage = document.createElement('img');
+                    playerImage.src = playerImages[player] || 'https://example.com/images/default.jpg'; // Default image if not found
+                    playerImage.alt = player;
+                    playerImage.classList.add('card-img-top');
+
+                    const cardBody = document.createElement('div');
+                    cardBody.classList.add('card-body');
+
+                    const playerName = document.createElement('h6');
+                    playerName.classList.add('card-title');
+                    playerName.innerText = player;
+
+                    cardBody.appendChild(playerName);
+                    card.appendChild(playerImage);
+                    card.appendChild(cardBody);
+                    cardCol.appendChild(card);
+                    playerList.appendChild(cardCol);
+                });
+
+                body.appendChild(playerList);
+                teamCard.appendChild(body);
+                accordion.appendChild(teamCard);
+            });
+        }
+
+        function filterTeams(teams, playerImages) {
+            const input = document.getElementById('filterInput').value.toLowerCase();
+            const filteredTeams = teams.filter(team =>
+                team.team.toLowerCase().includes(input) ||
+                team.players.some(player => player.toLowerCase().includes(input))
+            );
+            displayTeams(filteredTeams, playerImages);
+        }
+
+        Promise.all([fetchTeams(), fetchPlayerImages()]).then(([teams, playerImages]) => {
+            displayTeams(teams, playerImages);
+            document.getElementById('filterInput').addEventListener('input', () => {
+                filterTeams(teams, playerImages);
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
