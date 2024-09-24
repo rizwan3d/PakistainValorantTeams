@@ -19,6 +19,9 @@
             height: 40px;
             margin-right: 10px;
         }
+        .w-100px{
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -39,96 +42,109 @@
             return response.json();
         }
 
-        function displayTeams(teams, playerImages) {
-            const accordion = document.getElementById('teamAccordion');
-            accordion.innerHTML = '';
+            function displayTeams(teams, playerImages) {
+                const accordion = document.getElementById('teamAccordion');
+                accordion.innerHTML = '';
 
-            teams.forEach((team) => {
-                const teamId = team.team.replace(/[^a-zA-Z0-9_]+/g, '_');
-                const teamCard = document.createElement('div');
-                teamCard.classList.add('accordion-item');
+                teams.forEach((team) => {
+                    const teamId = team.team.replace(/[^a-zA-Z0-9_]+/g, '_');
 
-                const header = document.createElement('h2');
-                header.classList.add('accordion-header');
-                header.id = `heading_${teamId}`;
+                    const teamCard = document.createElement('div');
+                    teamCard.classList.add('accordion-item');
 
-                const button = document.createElement('button');
-                button.classList.add('accordion-button');
-                button.type = 'button';
-                button.setAttribute('data-bs-toggle', 'collapse');
-                button.setAttribute('data-bs-target', `#collapse_${teamId}`);
-                button.setAttribute('aria-expanded', 'true');
-                button.setAttribute('aria-controls', `collapse_${teamId}`);
+                    const header = document.createElement('h2');
+                    header.classList.add('accordion-header');
+                    header.id = `heading_${teamId}`;
 
-                // Create team logo element
-                const logo = document.createElement('img');
-                logo.src = team.logo;
-                logo.alt = team.team + ' Logo';
-                logo.classList.add('team-logo');
+                    const button = document.createElement('button');
+                    button.classList.add('accordion-button');
+                    button.type = 'button';
+                    button.setAttribute('data-bs-toggle', 'collapse');
+                    button.setAttribute('data-bs-target', `#collapse_${teamId}`);
+                    button.setAttribute('aria-expanded', 'true');
+                    button.setAttribute('aria-controls', `collapse_${teamId}`);
 
-                button.appendChild(logo); // Add logo to button
-                button.appendChild(document.createTextNode(team.team)); // Add team name
+                    const logo = document.createElement('img');
+                    logo.src = team.logo;
+                    logo.alt = team.team + ' Logo';
+                    logo.classList.add('team-logo');
 
-                header.appendChild(button);
-                teamCard.appendChild(header);
+                    button.appendChild(logo);
 
-                const body = document.createElement('div');
-                body.id = `collapse_${teamId}`;
-                body.classList.add('accordion-collapse', 'collapse', 'hide');
-                body.setAttribute('aria-labelledby', `heading_${teamId}`);
-                body.setAttribute('data-bs-parent', '#teamAccordion');
+                    const teamHeading = document.createElement("span");
+                    teamHeading.classList.add('w-100');
+                    teamHeading.innerText = team.team;
+                    button.appendChild(teamHeading); 
 
-                // Create a div for the created date
-                const createdDate = document.createElement('p');
-                createdDate.classList.add('mt-2', 'text-muted');
-                createdDate.innerText = `Added on: ${team.createdat}, Last updated at: ${team.updatedat}`;
+                    const copyButton = document.createElement('button');
+                    copyButton.innerText = 'Copy Link';
+                    copyButton.classList.add('btn', 'btn-secondary', 'btn-sm', 'me-2', "w-100px");
+                    copyButton.onclick = () => {
+                        const link = window.location.href.split('#')[0] + `#collapse_${teamId}`;
+                        navigator.clipboard.writeText(link).then(() => {
+                            alert('Link copied to clipboard!'); 
+                        });
+                    };
+                    button.appendChild(copyButton); 
 
-                const playerList = document.createElement('div');
-                playerList.classList.add('row', 'mt-3', 'mx-auto');
+                    header.appendChild(button);
+                    teamCard.appendChild(header);
 
-                team.players.forEach(player => {
-                    const cardCol = document.createElement('div');
-                    cardCol.classList.add('col-4', 'mb-3');
+                    const body = document.createElement('div');
+                    body.id = `collapse_${teamId}`;
+                    body.classList.add('accordion-collapse', 'collapse', 'hide');
+                    body.setAttribute('aria-labelledby', `heading_${teamId}`);
+                    body.setAttribute('data-bs-parent', '#teamAccordion');
 
-                    const card = document.createElement('div');
-                    card.classList.add('card');
+                    const createdDate = document.createElement('p');
+                    createdDate.classList.add('mt-2', 'text-muted');
+                    createdDate.innerText = `Created on: ${team.createdat}; Last updated at: ${team.updatedat}`;
 
-                    const playerImage = document.createElement('img');
-                    playerImage.src = playerImages[player.toLowerCase()] || 'https://cdn.discordapp.com/attachments/1288166821605675102/1288173264803467407/g3.png?ex=66f43857&is=66f2e6d7&hm=31785629ccb54cf6f5a155a2ff873c6961a505ec59b70bc50aa0ec08ab5c2c7e&';
-                    playerImage.alt = player;
-                    playerImage.classList.add('card-img-top');
+                    const playerList = document.createElement('div');
+                    playerList.classList.add('row', 'mt-3', 'mx-auto');
 
-                    const cardBody = document.createElement('div');
-                    cardBody.classList.add('card-body');
+                    team.players.forEach(player => {
+                        const cardCol = document.createElement('div');
+                        cardCol.classList.add('col-4', 'mb-3');
 
-                    const playerName = document.createElement('h6');
-                    playerName.classList.add('card-title');
-                    playerName.innerText = player;
+                        const card = document.createElement('div');
+                        card.classList.add('card');
 
-                    cardBody.appendChild(playerName);
-                    card.appendChild(playerImage);
-                    card.appendChild(cardBody);
-                    cardCol.appendChild(card);
-                    playerList.appendChild(cardCol);
+                        const playerImage = document.createElement('img');
+                        playerImage.src = playerImages[player.toLowerCase()] || 'https://cdn.discordapp.com/attachments/1288166821605675102/1288173264803467407/g3.png?ex=66f43857&is=66f2e6d7&hm=31785629ccb54cf6f5a155a2ff873c6961a505ec59b70bc50aa0ec08ab5c2c7e&';
+                        playerImage.alt = player;
+                        playerImage.classList.add('card-img-top');
+
+                        const cardBody = document.createElement('div');
+                        cardBody.classList.add('card-body');
+
+                        const playerName = document.createElement('h6');
+                        playerName.classList.add('card-title');
+                        playerName.innerText = player;
+
+                        cardBody.appendChild(playerName);
+                        card.appendChild(playerImage);
+                        card.appendChild(cardBody);
+                        cardCol.appendChild(card);
+                        playerList.appendChild(cardCol);
+                    });
+
+                    body.appendChild(createdDate);
+                    body.appendChild(playerList);
+                    teamCard.appendChild(body);
+                    accordion.appendChild(teamCard);
                 });
 
-                body.appendChild(createdDate); // Append created date
-                body.appendChild(playerList);
-                teamCard.appendChild(body);
-                accordion.appendChild(teamCard);
-            });
-
-            // Check for URL hash and open the corresponding accordion
-            const hash = window.location.hash;
-            if (hash) {
-                const target = document.querySelector(hash);
-                if (target) {
-                    const accordionCollapse = new bootstrap.Collapse(target, {
-                        toggle: true
-                    });
+                const hash = window.location.hash;
+                if (hash) {
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        const accordionCollapse = new bootstrap.Collapse(target, {
+                            toggle: true
+                        });
+                    }
                 }
             }
-        }
 
         function filterTeams(teams, playerImages) {
             const input = document.getElementById('filterInput').value.toLowerCase();
