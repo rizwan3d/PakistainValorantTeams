@@ -2,20 +2,14 @@
     {
       "team": "ACID Community",
       "createdat": "24-09-2024",
+      "updatedat": "24-09-2024",
       "logo": "https://cdn.discordapp.com/attachments/1288166821605675102/1288171627523080202/323103318_559903279338282_2567811842315627007_n.jpg?ex=66f436d1&is=66f2e551&hm=72fef18d449ccbce2741c2fd2c98e83c75036270a2a147172c248b48ab38f97a&",
       "players": ["MeanMachine", "JuttPlays", "Khanu", "Mono"]
     },
     {
-      "team": "Team Ruthless PK Official",
-      "createdat": "24-09-2024",
-      "logo": "https://cdn.discordapp.com/attachments/1288194052130607186/1288194424471421082/image1-791.png?ex=66f44c0c&is=66f2fa8c&hm=3c0bd82a34f116d72894740081cf2aa6740406fccad2a6006eb02bcbd261f42b&",
-      "players": ["David", "Eve", "Frank"]
-    }
-
-    ,
-    {
       "team": "Team Ruthless (Aether)",
       "createdat": "24-09-2024",
+      "updatedat": "24-09-2024",
       "logo": "https://cdn.discordapp.com/attachments/1288194052130607186/1288194424471421082/image1-791.png?ex=66f44c0c&is=66f2fa8c&hm=3c0bd82a34f116d72894740081cf2aa6740406fccad2a6006eb02bcbd261f42b&",
       "players": ["Terror", "Sky", "Punisher","Spat","Xpolymer","Arshz","Sherry"]
     }

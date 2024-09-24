@@ -43,21 +43,22 @@
             const accordion = document.getElementById('teamAccordion');
             accordion.innerHTML = '';
 
-            teams.forEach((team, index) => {
+            teams.forEach((team) => {
+                const teamId = team.team.replace(/[^a-zA-Z0-9_]+/g, '_');
                 const teamCard = document.createElement('div');
                 teamCard.classList.add('accordion-item');
 
                 const header = document.createElement('h2');
                 header.classList.add('accordion-header');
-                header.id = `heading${index}`;
+                header.id = `heading_${teamId}`;
 
                 const button = document.createElement('button');
                 button.classList.add('accordion-button');
                 button.type = 'button';
                 button.setAttribute('data-bs-toggle', 'collapse');
-                button.setAttribute('data-bs-target', `#collapse${index}`);
+                button.setAttribute('data-bs-target', `#collapse_${teamId}`);
                 button.setAttribute('aria-expanded', 'true');
-                button.setAttribute('aria-controls', `collapse${index}`);
+                button.setAttribute('aria-controls', `collapse_${teamId}`);
 
                 // Create team logo element
                 const logo = document.createElement('img');
@@ -72,13 +73,18 @@
                 teamCard.appendChild(header);
 
                 const body = document.createElement('div');
-                body.id = `collapse${index}`;
+                body.id = `collapse_${teamId}`;
                 body.classList.add('accordion-collapse', 'collapse', 'hide');
-                body.setAttribute('aria-labelledby', `heading${index}`);
+                body.setAttribute('aria-labelledby', `heading_${teamId}`);
                 body.setAttribute('data-bs-parent', '#teamAccordion');
 
+                // Create a div for the created date
+                const createdDate = document.createElement('p');
+                createdDate.classList.add('mt-2', 'text-muted');
+                createdDate.innerText = `Added on: ${team.createdat}, Last updated at: ${team.updatedat}`;
+
                 const playerList = document.createElement('div');
-                playerList.classList.add('row','mt-3',"mx-auto");
+                playerList.classList.add('row', 'mt-3', 'mx-auto');
 
                 team.players.forEach(player => {
                     const cardCol = document.createElement('div');
@@ -106,11 +112,13 @@
                     playerList.appendChild(cardCol);
                 });
 
+                body.appendChild(createdDate); // Append created date
                 body.appendChild(playerList);
                 teamCard.appendChild(body);
                 accordion.appendChild(teamCard);
             });
 
+            // Check for URL hash and open the corresponding accordion
             const hash = window.location.hash;
             if (hash) {
                 const target = document.querySelector(hash);
@@ -119,7 +127,7 @@
                         toggle: true
                     });
                 }
-    }
+            }
         }
 
         function filterTeams(teams, playerImages) {
@@ -139,6 +147,5 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
