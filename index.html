@@ -7,11 +7,15 @@
     <title>Team and Player Filter</title>
     <style>
         .card {
-            height: 250px; /* Fixed height for the card */
+            height: 250px;
         }
         .card-img-top {
-            height: 180px; /* Fixed height for the image */
-            object-fit: cover; /* Maintain aspect ratio */
+            height: 180px;
+            object-fit: cover;
+        }
+        .team-logo {
+            height: 40px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -52,7 +56,15 @@
                 button.setAttribute('data-bs-target', `#collapse${index}`);
                 button.setAttribute('aria-expanded', 'true');
                 button.setAttribute('aria-controls', `collapse${index}`);
-                button.innerText = team.team;
+
+                // Create team logo element
+                const logo = document.createElement('img');
+                logo.src = team.logo;
+                logo.alt = team.team + ' Logo';
+                logo.classList.add('team-logo');
+
+                button.appendChild(logo); // Add logo to button
+                button.appendChild(document.createTextNode(team.team)); // Add team name
 
                 header.appendChild(button);
                 teamCard.appendChild(header);

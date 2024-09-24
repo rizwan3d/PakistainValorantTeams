@@ -1,10 +1,12 @@
 [
     {
       "team": "Team A",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Esports_organization_Fnatic_logo.svg/800px-Esports_organization_Fnatic_logo.svg.png",
       "players": ["Alice", "Bob", "Charlie"]
     },
     {
       "team": "Team B",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Esports_organization_Fnatic_logo.svg/800px-Esports_organization_Fnatic_logo.svg.png",
       "players": ["David", "Eve", "Frank"]
     }
   ]
