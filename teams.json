@@ -8,8 +8,16 @@
     {
       "team": "Team Ruthless PK Official",
       "createdat": "24-09-2024",
-      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Esports_organization_Fnatic_logo.svg/800px-Esports_organization_Fnatic_logo.svg.png",
+      "logo": "https://cdn.discordapp.com/attachments/1288194052130607186/1288194424471421082/image1-791.png?ex=66f44c0c&is=66f2fa8c&hm=3c0bd82a34f116d72894740081cf2aa6740406fccad2a6006eb02bcbd261f42b&",
       "players": ["David", "Eve", "Frank"]
+    }
+
+    ,
+    {
+      "team": "Team Ruthless (Aether)",
+      "createdat": "24-09-2024",
+      "logo": "https://cdn.discordapp.com/attachments/1288194052130607186/1288194424471421082/image1-791.png?ex=66f44c0c&is=66f2fa8c&hm=3c0bd82a34f116d72894740081cf2aa6740406fccad2a6006eb02bcbd261f42b&",
+      "players": ["Terror", "Sky", "Punisher","Spat","Xpolymer","Arshz","Sherry"]
     }
   ]
   
