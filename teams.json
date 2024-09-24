@@ -1,11 +1,13 @@
 [
     {
-      "team": "Team A",
-      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Esports_organization_Fnatic_logo.svg/800px-Esports_organization_Fnatic_logo.svg.png",
-      "players": ["Alice", "Bob", "Charlie"]
+      "team": "ACID Community",
+      "createdat": "24-09-2024",
+      "logo": "https://cdn.discordapp.com/attachments/1288166821605675102/1288171627523080202/323103318_559903279338282_2567811842315627007_n.jpg?ex=66f436d1&is=66f2e551&hm=72fef18d449ccbce2741c2fd2c98e83c75036270a2a147172c248b48ab38f97a&",
+      "players": ["MeanMachine", "JuttPlays", "Khanu", "Mono"]
     },
     {
-      "team": "Team B",
+      "team": "Team Ruthless PK Official",
+      "createdat": "24-09-2024",
       "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Esports_organization_Fnatic_logo.svg/800px-Esports_organization_Fnatic_logo.svg.png",
       "players": ["David", "Eve", "Frank"]
     }
