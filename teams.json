@@ -1,5 +1,6 @@
 [
     {
+      "tag": "acid",
       "team": "ACID Community",
       "createdat": "24-09-2024",
       "updatedat": "24-09-2024",
@@ -7,6 +8,7 @@
       "players": ["MeanMachine", "JuttPlays", "Khanu", "Mono"]
     },
     {
+      "tag": "trl",
       "team": "Team Ruthless (Aether)",
       "createdat": "24-09-2024",
       "updatedat": "24-09-2024",
