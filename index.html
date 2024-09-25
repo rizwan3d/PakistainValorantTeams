@@ -75,7 +75,7 @@
                     button.setAttribute('aria-controls', `collapse_${teamId}`);
 
                     const logo = document.createElement('img');
-                    logo.src = `./imgs/${team.tag}.png`;
+                    logo.src = `./imgs/${team.tag.toLowerCase()}.png`;
                     logo.alt = team.team + ' Logo';
                     logo.classList.add('team-logo');
 
@@ -121,7 +121,7 @@
                         card.classList.add('card');
 
                         const playerImage = document.createElement('img');
-                        playerImage.src = `./imgs/${player}.png`;
+                        playerImage.src = `./imgs/${player.toLowerCase()}.png`;
                         playerImage.alt = player;
                         playerImage.classList.add('card-img-top');
 
