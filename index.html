@@ -52,12 +52,7 @@
             return response.json();
         }
 
-        async function fetchPlayerImages() {
-            const response = await fetch('players.json');
-            return response.json();
-        }
-
-            function displayTeams(teams, playerImages) {
+            function displayTeams(teams) {
                 const accordion = document.getElementById('teamAccordion');
                 accordion.innerHTML = '';
 
@@ -80,7 +75,7 @@
                     button.setAttribute('aria-controls', `collapse_${teamId}`);
 
                     const logo = document.createElement('img');
-                    logo.src = team.logo;
+                    logo.src = `/imgs/${team.tag}.png`;
                     logo.alt = team.team + ' Logo';
                     logo.classList.add('team-logo');
 
@@ -126,9 +121,14 @@
                         card.classList.add('card');
 
                         const playerImage = document.createElement('img');
-                        playerImage.src = playerImages[player.toLowerCase()] || 'https://cdn.discordapp.com/attachments/1288166821605675102/1288173264803467407/g3.png?ex=66f43857&is=66f2e6d7&hm=31785629ccb54cf6f5a155a2ff873c6961a505ec59b70bc50aa0ec08ab5c2c7e&';
+                        playerImage.src = `/imgs/${player}.png`;
                         playerImage.alt = player;
                         playerImage.classList.add('card-img-top');
+
+                        playerImage.onerror = function () {
+                            this.onerror = null;
+                            this.src = '/imgs/no.png';
+                        };
 
                         const cardBody = document.createElement('div');
                         cardBody.classList.add('card-body');
@@ -170,10 +170,10 @@
             displayTeams(filteredTeams, playerImages);
         }
 
-        Promise.all([fetchTeams(), fetchPlayerImages()]).then(([teams, playerImages]) => {
-            displayTeams(teams, playerImages);
+        Promise.all([fetchTeams()]).then(([teams]) => {
+            displayTeams(teams);
             document.getElementById('filterInput').addEventListener('input', () => {
-                filterTeams(teams, playerImages);
+                filterTeams(teams);
             });
         });
     </script>
