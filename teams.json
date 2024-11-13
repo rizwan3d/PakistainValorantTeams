@@ -3,15 +3,29 @@
       "tag": "acid",
       "team": "ACID Community",
       "createdat": "24-09-2024",
-      "updatedat": "24-09-2024",
-      "players": ["MeanMachine", "JuttPlays", "Khanu", "Mono"]
+      "updatedat": "13-11-2024",
+      "players": ["Jutt"]
     },
     {
-      "tag": "trl",
-      "team": "Team Ruthless (Aether)",
-      "createdat": "24-09-2024",
-      "updatedat": "24-09-2024",
-      "players": ["Terror", "Sky", "Punisher","Spat","Xpolymer","Arshz","Sherry"]
+      "tag": "gg",
+      "team": "Team GG",
+      "createdat": "13-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "v1",
+      "team": "Vision 1",
+      "createdat": "13-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "xes",
+      "team": "Vision 1",
+      "createdat": "13-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
     }
   ]
   
