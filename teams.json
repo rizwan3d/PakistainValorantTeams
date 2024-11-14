@@ -21,9 +21,136 @@
       "players": []
     },
     {
-      "tag": "xes",
-      "team": "Vision 1",
+      "tag": "akt",
+      "team": "Akatsuki",
       "createdat": "13-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "xes",
+      "team": "Xplosion Esports",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    }
+    ,
+    {
+      "tag": "ctl",
+      "team": "Team Catalyst",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    },
+    {
+      "tag": "ege",
+      "team": "Emma Gola Esports",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    },
+    {
+      "tag": "gg",
+      "team": "Golden Gamers",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    },
+    {
+      "tag": "hik",
+      "team": "Hikers",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    },
+    {
+      "tag": "jr",
+      "team": "Just Right",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    },
+    {
+      "tag": "ng",
+      "team": "Not Gamers",
+      "createdat": "14-11-2024",
+      "updatedat": "14-11-2024",
+      "players": []
+    },
+    {
+      "tag": "prfs",
+      "team": "The Perfectionists",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "prt",
+      "team": "Prototype",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "sift",
+      "team": "Sift Esports",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "sr",
+      "team": "Sunset Riders",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "t8",
+      "team": "T8 Esports",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "tm",
+      "team": "Team Mystic",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "tr",
+      "team": "Team Rals",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "ts",
+      "team": "Team Spirit",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "ud",
+      "team": "UD Esports",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "xlr8",
+      "team": "Team Accelarate",
+      "createdat": "14-11-2024",
+      "updatedat": "13-11-2024",
+      "players": []
+    },
+    {
+      "tag": "yg",
+      "team": "Yeagerists",
+      "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
       "players": []
     }
