@@ -1,46 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Team and Player Filter</title>
     <style>
         .card {
             height: 280px;
             width: 400px;
         }
+
         .card-img-top {
             height: 225px;
             width: 400px;
             object-fit: cover;
         }
+
         .team-logo {
             height: 40px;
             margin-right: 10px;
         }
-        .w-100px{
+
+        .w-100px {
             width: 100px;
         }
     </style>
 </head>
+
 <body>
     <div class="container mt-5 text-center">
+        <img src="https://www.untitlede.xyz/assets/logo.webp" width="50" height="50" />
+        <h3><a href="https://www.untitlede.xyz/">Untitled Entertainment</a></h3>
         <h1>Pakistain Valorant Teams And There Players</h1>
-        <p class="text-muted">All teams are sorted by their added date.</p>
+        <p class="text-muted">All teams are sorted by their name.</p>
+
         <input type="text" id="filterInput" class="form-control" placeholder="Filter by player name or team name">
         <div class="accordion mt-5" id="teamAccordion"></div>
     </div>
 
+    <div class="mt-3 text-center">
+        <h2>Add Your Team and Players</h2>
+        <p>If you'd like to add your team and players to this list, please contact us:</p>
+        <p>
+            <a href="https://www.untitlede.xyz/discord" class="btn btn-primary" target="_blank">Join Our Discord</a>
+            or
+            <a href="mailto:untitledentertainment11@gmail.com?subject=Add Team and Players"
+                class="btn btn-secondary">Email Us</a>
+        </p>
+        <p class="text-muted">When emailing, please use the subject line <strong>"Add Team and Players"</strong> and
+            provide relevant team and player information.</p>
+    </div>
+
+    <div class="container mt-5 text-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-4">
+                <h1>Main Contributors</h1>
+                <p class="text-muted">List of maintainers for Pakistan Valorant Teams</p>
+                <ul id="contributorsList" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="alert alert-warning" role="alert">
+            <strong>Disclaimer:</strong> All team logos, names, and player images are the copyright of their respective
+            owners. This website serves as an open database of Pakistan’s Valorant esports players, collected and
+            curated by Untitled Entertainment with permission from owners for use in streaming overlays and on this
+            website. Unauthorized use is prohibited without proper permission from the owners.
+        </div>
+    </div>
+
     <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
-            <p class="mb-0">Created by 2Thoughts and ACID Community with love for a better Pakistan's gaming community</p>
+            <p class="mb-0">Created by 2Thoughts and ACID Community with love for a better Pakistan's gaming community
+            </p>
             <div class="mt-2">
-                <a href="https://instagram.com/acid_community_offical" class="text-white text-decoration-none me-2" target="_blank">
+                <a href="https://www.untitlede.xyz/" class="text-white text-decoration-none me-2" target="_blank">
+                    <i class="fa-solid fa-globe fa-lg"></i>
+                </a>
+                <a href="https://www.facebook.com/untitlede.xyz#/" class="text-white text-decoration-none me-2"
+                    target="_blank">
+                    <i class="fab fa-facebook fa-lg"></i>
+                </a>
+                <a href="https://www.instagram.com/untitlede.xyz/" class="text-white text-decoration-none me-2"
+                    target="_blank">
                     <i class="fab fa-instagram fa-lg"></i>
                 </a>
-                <a href="https://acidcommunity.com/discord" class="text-white text-decoration-none ms-2" target="_blank">
+                <a href="https://www.untitlede.xyz/discord" class="text-white text-decoration-none ms-2"
+                    target="_blank">
                     <i class="fab fa-discord fa-lg"></i>
                 </a>
             </div>
@@ -52,114 +102,117 @@
             return response.json();
         }
 
-            function displayTeams(teams) {
-                const accordion = document.getElementById('teamAccordion');
-                accordion.innerHTML = '';
+        function displayTeams(teams) {
 
-                teams.forEach((team) => {
-                    const teamId = team.team.replace(/[^a-zA-Z0-9_]+/g, '_');
+            teams = teams.sort((a, b) => a.team.localeCompare(b.team));
 
-                    const teamCard = document.createElement('div');
-                    teamCard.classList.add('accordion-item');
+            const accordion = document.getElementById('teamAccordion');
+            accordion.innerHTML = '';
 
-                    const header = document.createElement('h2');
-                    header.classList.add('accordion-header');
-                    header.id = `heading_${teamId}`;
+            teams.forEach((team) => {
+                const teamId = team.team.replace(/[^a-zA-Z0-9_]+/g, '_');
 
-                    const button = document.createElement('button');
-                    button.classList.add('accordion-button');
-                    button.type = 'button';
-                    button.setAttribute('data-bs-toggle', 'collapse');
-                    button.setAttribute('data-bs-target', `#collapse_${teamId}`);
-                    button.setAttribute('aria-expanded', 'true');
-                    button.setAttribute('aria-controls', `collapse_${teamId}`);
+                const teamCard = document.createElement('div');
+                teamCard.classList.add('accordion-item');
 
-                    const logo = document.createElement('img');
-                    logo.src = `./imgs/${team.tag.toLowerCase()}.png`;
-                    logo.alt = team.team + ' Logo';
-                    logo.classList.add('team-logo');
+                const header = document.createElement('h2');
+                header.classList.add('accordion-header');
+                header.id = `heading_${teamId}`;
 
-                    button.appendChild(logo);
+                const button = document.createElement('button');
+                button.classList.add('accordion-button');
+                button.type = 'button';
+                button.setAttribute('data-bs-toggle', 'collapse');
+                button.setAttribute('data-bs-target', `#collapse_${teamId}`);
+                button.setAttribute('aria-expanded', 'true');
+                button.setAttribute('aria-controls', `collapse_${teamId}`);
 
-                    const teamHeading = document.createElement("span");
-                    teamHeading.classList.add('w-100');
-                    teamHeading.innerText = team.team;
-                    button.appendChild(teamHeading); 
+                const logo = document.createElement('img');
+                logo.src = `./imgs/${team.tag.toLowerCase()}.png`;
+                logo.alt = team.team + ' Logo';
+                logo.classList.add('team-logo');
 
-                    const copyButton = document.createElement('button');
-                    copyButton.innerText = 'Copy Link';
-                    copyButton.classList.add('btn', 'btn-secondary', 'btn-sm', 'me-2', "w-100px");
-                    copyButton.onclick = () => {
-                        const link = window.location.href.split('#')[0] + `#collapse_${teamId}`;
-                        navigator.clipboard.writeText(link).then(() => {
-                            alert('Link copied to clipboard!'); 
-                        });
-                    };
-                    button.appendChild(copyButton); 
+                button.appendChild(logo);
 
-                    header.appendChild(button);
-                    teamCard.appendChild(header);
+                const teamHeading = document.createElement("span");
+                teamHeading.classList.add('w-100');
+                teamHeading.innerText = team.team;
+                button.appendChild(teamHeading);
 
-                    const body = document.createElement('div');
-                    body.id = `collapse_${teamId}`;
-                    body.classList.add('accordion-collapse', 'collapse', 'hide');
-                    body.setAttribute('aria-labelledby', `heading_${teamId}`);
-                    body.setAttribute('data-bs-parent', '#teamAccordion');
-
-                    const createdDate = document.createElement('p');
-                    createdDate.classList.add('mt-2', 'text-muted');
-                    createdDate.innerText = `Created on: ${team.createdat}; Last updated at: ${team.updatedat}`;
-
-                    const playerList = document.createElement('div');
-                    playerList.classList.add('row', 'mt-3', 'mx-auto');
-
-                    team.players.forEach(player => {
-                        const cardCol = document.createElement('div');
-                        cardCol.classList.add('col-4', 'mb-3');
-
-                        const card = document.createElement('div');
-                        card.classList.add('card');
-
-                        const playerImage = document.createElement('img');
-                        playerImage.src = `./imgs/${player.toLowerCase()}.png`;
-                        playerImage.alt = player;
-                        playerImage.classList.add('card-img-top');
-
-                        playerImage.onerror = function () {
-                            this.onerror = null;
-                            this.src = './imgs/no.png';
-                        };
-
-                        const cardBody = document.createElement('div');
-                        cardBody.classList.add('card-body');
-
-                        const playerName = document.createElement('h6');
-                        playerName.classList.add('card-title');
-                        playerName.innerText = player;
-
-                        cardBody.appendChild(playerName);
-                        card.appendChild(playerImage);
-                        card.appendChild(cardBody);
-                        cardCol.appendChild(card);
-                        playerList.appendChild(cardCol);
+                const copyButton = document.createElement('button');
+                copyButton.innerText = 'Copy Link';
+                copyButton.classList.add('btn', 'btn-secondary', 'btn-sm', 'me-2', "w-100px");
+                copyButton.onclick = () => {
+                    const link = window.location.href.split('#')[0] + `#collapse_${teamId}`;
+                    navigator.clipboard.writeText(link).then(() => {
+                        alert('Link copied to clipboard!');
                     });
+                };
+                button.appendChild(copyButton);
 
-                    body.appendChild(createdDate);
-                    body.appendChild(playerList);
-                    teamCard.appendChild(body);
-                    accordion.appendChild(teamCard);
+                header.appendChild(button);
+                teamCard.appendChild(header);
+
+                const body = document.createElement('div');
+                body.id = `collapse_${teamId}`;
+                body.classList.add('accordion-collapse', 'collapse', 'hide');
+                body.setAttribute('aria-labelledby', `heading_${teamId}`);
+                body.setAttribute('data-bs-parent', '#teamAccordion');
+
+                const createdDate = document.createElement('p');
+                createdDate.classList.add('mt-2', 'text-muted');
+                createdDate.innerText = `Created on: ${team.createdat}; Last updated at: ${team.updatedat}`;
+
+                const playerList = document.createElement('div');
+                playerList.classList.add('row', 'mt-3', 'mx-auto');
+
+                team.players.forEach(player => {
+                    const cardCol = document.createElement('div');
+                    cardCol.classList.add('col-4', 'mb-3');
+
+                    const card = document.createElement('div');
+                    card.classList.add('card');
+
+                    const playerImage = document.createElement('img');
+                    playerImage.src = `./imgs/${player.toLowerCase()}.png`;
+                    playerImage.alt = player;
+                    playerImage.classList.add('card-img-top');
+
+                    playerImage.onerror = function () {
+                        this.onerror = null;
+                        this.src = './imgs/no.png';
+                    };
+
+                    const cardBody = document.createElement('div');
+                    cardBody.classList.add('card-body');
+
+                    const playerName = document.createElement('h6');
+                    playerName.classList.add('card-title');
+                    playerName.innerText = player;
+
+                    cardBody.appendChild(playerName);
+                    card.appendChild(playerImage);
+                    card.appendChild(cardBody);
+                    cardCol.appendChild(card);
+                    playerList.appendChild(cardCol);
                 });
 
-                const hash = window.location.hash;
-                if (hash) {
-                    const target = document.querySelector(hash);
-                    if (target) {
-                        const accordionCollapse = new bootstrap.Collapse(target, {
-                            toggle: true
-                        });
-                    }
+                body.appendChild(createdDate);
+                body.appendChild(playerList);
+                teamCard.appendChild(body);
+                accordion.appendChild(teamCard);
+            });
+
+            const hash = window.location.hash;
+            if (hash) {
+                const target = document.querySelector(hash);
+                if (target) {
+                    const accordionCollapse = new bootstrap.Collapse(target, {
+                        toggle: true
+                    });
                 }
             }
+        }
 
         function filterTeams(teams, playerImages) {
             const input = document.getElementById('filterInput').value.toLowerCase();
@@ -176,7 +229,47 @@
                 filterTeams(teams);
             });
         });
+
+        async function fetchContributors() {
+            try {
+                const response = await fetch('https://api.github.com/repos/rizwan3d/PakistainValorantTeams/contributors');
+                const contributors = await response.json();
+
+                const contributorsList = document.getElementById('contributorsList');
+                contributorsList.innerHTML = '';  // Clear previous entries
+
+                contributors.forEach(contributor => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+
+                    // Display contributor's avatar
+                    const avatar = document.createElement('img');
+                    avatar.src = contributor.avatar_url;
+                    avatar.alt = `${contributor.login}'s avatar`;
+                    avatar.width = 40;
+                    avatar.height = 40;
+                    avatar.classList.add('rounded-circle', 'me-3');
+
+                    // Contributor's name and profile link
+                    const nameLink = document.createElement('a');
+                    nameLink.href = contributor.html_url;
+                    nameLink.target = '_blank';
+                    nameLink.classList.add('text-decoration-none');
+                    nameLink.innerText = contributor.login;
+
+                    listItem.appendChild(avatar);
+                    listItem.appendChild(nameLink);
+
+                    contributorsList.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('Error fetching contributors:', error);
+            }
+        }
+
+        fetchContributors();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
