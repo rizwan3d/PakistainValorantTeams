@@ -4,21 +4,21 @@
       "team": "ACID Community",
       "createdat": "24-09-2024",
       "updatedat": "13-11-2024",
-      "players": ["Jutt"]
+      "players": ["Mirza", "Shade", "BachaFps", "Astrodox", "JuTT", "Buff", "AgeNt", "Dark", "HansRaj", "Offensive", "Akif"]
     },
     {
       "tag": "gg",
-      "team": "Team GG",
+      "team": "Golden Gamers",
       "createdat": "13-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["Bazil", "FrenZyy", "SQ1", "Aliloshyper", "Anas", "Flamez"]
     },
     {
       "tag": "v1",
       "team": "Vision 1",
       "createdat": "13-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["Ackerman", "Zxrra", "Theia", "Flow", "xAn"]
     },
     {
       "tag": "akt",
@@ -32,7 +32,7 @@
       "team": "Xplosion Esports",
       "createdat": "14-11-2024",
       "updatedat": "14-11-2024",
-      "players": []
+      "players": ["SacyLord", "Spencer", "Smokey", "RyZN", "Slowly"]
     }
     ,
     {
@@ -40,18 +40,11 @@
       "team": "Team Catalyst",
       "createdat": "14-11-2024",
       "updatedat": "14-11-2024",
-      "players": []
+      "players": ["Tempest", "Hamzito", "Darkos", "Feica", "Ezbreaker", "GAI3AR", "Knight"]
     },
     {
       "tag": "ege",
       "team": "Emma Gola Esports",
-      "createdat": "14-11-2024",
-      "updatedat": "14-11-2024",
-      "players": []
-    },
-    {
-      "tag": "gg",
-      "team": "Golden Gamers",
       "createdat": "14-11-2024",
       "updatedat": "14-11-2024",
       "players": []
@@ -82,7 +75,7 @@
       "team": "The Perfectionists",
       "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["AlleN", "Dexter", "hsN", "Smiley", "Paidhax"]
     },
     {
       "tag": "prt",
@@ -96,14 +89,14 @@
       "team": "Sift Esports",
       "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["relTZy", "XKOR", "Zytrix", "MVS7", "HiTLeR"]
     },
     {
       "tag": "sr",
       "team": "Sunset Riders",
       "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["SAIF", "JASIM", "FAIZAN", "KHANU", "RAJU", "TAHA", "ALI"]
     },
     {
       "tag": "t8",
@@ -113,18 +106,18 @@
       "players": []
     },
     {
-      "tag": "tm",
+      "tag": "mys",
       "team": "Team Mystic",
       "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["Trick", "KHG", "Protagonist", "Bloody", "Demon", "Britsy"]
     },
     {
       "tag": "tr",
       "team": "Team Rals",
       "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["Gutsy", "Danish", "Scarface", "BALLY", "Nobody"]
     },
     {
       "tag": "ts",
@@ -142,10 +135,10 @@
     },
     {
       "tag": "xlr8",
-      "team": "Team Accelarate",
+      "team": "Team Accelerate",
       "createdat": "14-11-2024",
       "updatedat": "13-11-2024",
-      "players": []
+      "players": ["STRYKER", "Shadow", "Smexyy", "RUMI", "Aamish"]
     },
     {
       "tag": "yg",
@@ -159,21 +152,21 @@
       "team": "SILLY CARS",
       "createdat": "15-11-2024",
       "updatedat": "15-11-2024",
-      "players": []
+      "players": ["Nana", "Berke", "MindFaaq", "Osaka", "IM KONCEPTIST", "Heavens will"]
     },
     {
       "tag": "nea",
-      "team": "Nexas Esports",
+      "team": "Nexus Esports",
       "createdat": "15-11-2024",
       "updatedat": "15-11-2024",
-      "players": []
+      "players": ["INS SENPAI", "Zzaaiinn", "Ceaxer", "PANIC", "GhostNeo", "Governor", "MK7x", "Abdullah", "MAYHEM", "Vonify"]
     },
     {
       "tag": "vfx",
       "team": "VFX Esports",
       "createdat": "16-11-2024",
       "updatedat": "16-11-2024",
-      "players": []
+      "players": ["Shad0w", "CHBREET", "Soulzz", "Joke", "FL4SH", "Bloodstorm"]
     }
   ]
   
